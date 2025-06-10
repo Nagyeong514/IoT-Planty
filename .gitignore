@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+venv/
+
+# Logs
+logs/
+*.log
+
+# Timelapse images and video
+timelapse/
+*.mp4
+
+# Backup/Archive files
+*.zip
+
+# OS/System
+.DS_Store
+
+archive_name.zip
