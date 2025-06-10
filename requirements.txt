@@ -1,0 +1,6 @@
+# requirements.txt
+
+flask
+RPi.GPIO
+adafruit-circuitpython-dht
+board
