@@ -1,0 +1,18 @@
+/* src/components/Chart/WateringChart.css */
+.bar-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+}
+
+.bar-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111;
+}

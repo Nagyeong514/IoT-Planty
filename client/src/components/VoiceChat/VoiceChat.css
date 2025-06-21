@@ -1,0 +1,121 @@
+.voicechat-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 90vh;
+    padding: 40px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+}
+
+.right-panel {
+    font-size: 20px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.mic-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 160px; /* ✅ 마이크 크기 맞춰 공간 확보 */
+    margin-bottom: 30px;
+}
+
+.mic-circle {
+    width: 120px; /* ✅ 확대됨 */
+    height: 120px;
+    border-radius: 50%;
+    font-size: 50px; /* ✅ 이모지 크기 증가 */
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.mic-circle.active {
+    animation: pulse-wave 1.4s infinite;
+    background-color: #c3f5ff;
+}
+
+@keyframes pulse-wave {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 174, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 40px rgba(0, 174, 255, 0); /* ✅ 애니메이션 범위도 확대 */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 174, 255, 0);
+    }
+}
+
+.mic-status {
+    margin-top: 14px;
+    font-size: 20px;
+    color: #666;
+    font-weight: 500;
+}
+
+.chat-box {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    max-height: 500px;
+    scroll-behavior: smooth;
+}
+
+.message {
+    padding: 14px 18px;
+    border-radius: 20px;
+    font-size: 16px;
+    max-width: 70%;
+    line-height: 1.5;
+}
+
+.user-msg {
+    align-self: flex-end;
+    background-color: #d9f0ff;
+}
+
+.planty-msg {
+    align-self: flex-start;
+    background-color: #e4ffe4;
+}
+
+.placeholder {
+    align-self: center;
+    font-style: italic;
+    color: #aaa;
+}
+
+.face-large {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}

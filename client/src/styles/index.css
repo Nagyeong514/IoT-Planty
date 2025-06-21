@@ -1,0 +1,33 @@
+/* Base styles and CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f7f5;
+  color: #333;
+}
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-color: #4caf50;
+  --primary-dark: #388e3c;
+  --primary-light: #a5d6a7;
+  --secondary-color: #2196f3;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f5f7f5;
+  --card-background: #ffffff;
+  --sidebar-background: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}

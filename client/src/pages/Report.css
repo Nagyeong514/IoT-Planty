@@ -1,0 +1,60 @@
+.report-container {
+    padding: 0px 10px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-y: auto; /* ✅ 스크롤 가능 */
+    padding-bottom: 100px; /* ✅ 하단 여유 공간 */
+}
+
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.metric-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 80px;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #111;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+.section-title1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    margin: 10px 0 16px;
+}
+
+.section-title2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    margin: 40px 0 16px;
+}

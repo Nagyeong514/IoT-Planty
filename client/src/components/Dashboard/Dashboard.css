@@ -1,0 +1,195 @@
+.dashboard-body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    height: 100vh;
+    overflow: auto;
+}
+
+.main-left {
+    background: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+.sidebar-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #4caf50;
+}
+.main-left ul {
+    list-style: none;
+    padding: 0;
+}
+.main-left li {
+    padding: 10px;
+    cursor: pointer;
+    color: #666;
+}
+.main-left li.active {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.main-center {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.main-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    height: 100%;
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.value {
+    font-size: 40px;
+    font-weight: bold;
+    color: #4caf50;
+}
+.range {
+    font-size: 13px;
+    color: #666;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.switch {
+    position: relative;
+    width: 50px;
+    height: 30px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+.slider:before {
+    content: '';
+    position: absolute;
+    height: 24px;
+    width: 23px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #4caf50;
+}
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.main-right {
+    background: #f0fff5;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.camera-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+.camera-box {
+    width: 100%;
+    flex: 1;
+    border: 1px dashed #b2e2c3;
+    border-radius: 12px;
+    background: #eafff0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.camera-text {
+    font-weight: bold;
+    margin-top: 8px;
+}
+.camera-update {
+    font-size: 12px;
+    color: #666;
+    margin-top: 6px;
+}
+.btn-black {
+    background-color: #4caf50; /* 초록색 배경 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-black:hover {
+    background-color: #43a047; /* 더 진한 초록색 */
+}
+
+.btn-black:active {
+    background-color: #388e3c; /* 클릭 중 더 진한 초록 */
+    transform: scale(0.97); /* 살짝 눌린 듯한 효과 */
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.camera-image {
+    width: 120%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.icon {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain;
+}

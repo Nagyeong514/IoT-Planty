@@ -1,0 +1,105 @@
+.bar-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* 헤더 상단 */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.timeline-title-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.timeline-grip {
+    height: 16px;
+    width: 16px;
+    color: #999;
+    margin-right: 8px;
+}
+
+.timeline-more {
+    height: 18px;
+    width: 18px;
+    color: #666;
+    cursor: pointer;
+}
+
+.bar-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* 타임라인 영역 */
+.timeline-list {
+    position: relative;
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* 세로 라인 */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    width: 2px;
+    height: 100%;
+    background-color: #e5e7eb;
+}
+
+/* 항목 */
+.timeline-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+}
+
+.timeline-icon {
+    margin-top: 2px;
+    width: 32px; /* 🔼 크기 증가 */
+    height: 32px;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.timeline-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px; /* 🔼 본문 크기 증가 */
+    color: #333;
+}
+
+.timeline-reason {
+    font-weight: 500;
+    margin-bottom: 4px; /* 🔼 간격 미세 조정 */
+}
+
+.timeline-timestamp {
+    font-size: 13px; /* 🔼 시간 크기 증가 */
+    color: #888;
+}
