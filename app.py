@@ -1,18 +1,31 @@
 # app.py
 
-from flask import Flask, render_template, jsonify, url_for, request
+from flask import Flask, send_from_directory
 import os
 import time
 import threading
+from flask_cors import CORS
+app = Flask(__name__)
+CORS(app)
+
 
 from sensors.soil_sensor import read_soil_moisture
 from sensors.dht_sensor import read_temperature_humidity
 from actuators.pump_relay import pump_on
 from scheduler.auto_watering import auto_water_if_needed
 from routes.led_routes import led_bp
-
 from scheduler.auto_light import auto_light_loop
-from routes.chat_route import chat_bp
+from routes.chatbot import chat_bp
+from routes.sensor_routes import sensor_bp
+from routes.pump_routes import pump_bp
+from routes.log_summary_routes import log_bp
+from routes.mood_routes import mood_bp
+from ai.planty_voice_agent import PlantyVoiceAgent
+from routes.voicechat_route import voice_bp
+from routes.camera_stream import camera_bp
+from flask import send_from_directory
+
+
 
 
 # ✅ DB 저장 함수 import
@@ -20,42 +33,52 @@ from services.save_sensor_data import save_sensor_data
 from services.save_watering_log import save_watering_log
 from scheduler.sensor_scheduler import sensor_logging_loop
 
+
+
+
 app = Flask(__name__)
 app.register_blueprint(led_bp)
 app.register_blueprint(chat_bp)
+app.register_blueprint(sensor_bp)
+app.register_blueprint(pump_bp)
+app.register_blueprint(log_bp)
+app.register_blueprint(mood_bp)
+app.register_blueprint(voice_bp)
+app.register_blueprint(camera_bp)
 
+
+threading.Thread(target=PlantyVoiceAgent().run, daemon=True).start()
+
+
+# 이모지
+@app.route('/face/<path:filename>')
+def serve_face(filename):
+    return send_from_directory('static/face', filename)
+
+@app.route('/icon/<path:filename>')
+def serve_icon(filename):
+    return send_from_directory('static/icon', filename)
+
+# React 정적 웹페이지 서빙
 @app.route('/')
 def index():
-    video_path = 'static/timelapse.mp4'
-    if not os.path.exists(video_path):
-        print("⚠️ 타임랩스 영상이 존재하지 않습니다.")
-    timestamp = int(time.time())
-    video_url = url_for('static', filename='timelapse.mp4') + f'?v={timestamp}'
-    return render_template("index.html", video_url=video_url)
+    return send_from_directory('static', 'index.html')
 
-@app.route('/api/soil')
-def get_soil_status():
-    is_dry = read_soil_moisture()
-    return jsonify({
-        "status": "dry" if is_dry else "wet",
-        "value": int(is_dry)
-    })
+# React 빌드된 정적 파일(js, css 등) 처리
+@app.route('/static/js/<path:filename>')
+def serve_js(filename):
+    return send_from_directory('static/static/js', filename)
 
-@app.route('/api/dht')
-def get_dht():
-    data = read_temperature_humidity()
-    return jsonify(data)
+@app.route('/static/css/<path:filename>')
+def serve_css(filename):
+    return send_from_directory('static/static/css', filename)
 
-@app.route('/api/pump', methods=['POST'])  # ✅ 수동 급수
-def trigger_pump():
-    pump_on()
-    save_watering_log(method='manual')  # ✅ 수동 급수 기록 저장
-    return jsonify({"status": "success", "message": "Pump activated"})
+@app.route('/static/timelapse.mp4')
+def serve_timelapse():
+    return send_from_directory('static', 'timelapse.mp4')
 
-@app.route('/api/pump/auto', methods=["POST"])
-def auto_water():
-    result = auto_water_if_needed()
-    return jsonify(result)
+
+
 
 # 🔄 자동 급수 백그라운드 루프
 def auto_watering_loop():

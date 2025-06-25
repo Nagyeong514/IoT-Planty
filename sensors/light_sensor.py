@@ -1,3 +1,5 @@
+## sensors/light_sensor.py
+
 from gpiozero import DigitalInputDevice
 
 light_sensor = DigitalInputDevice(22)

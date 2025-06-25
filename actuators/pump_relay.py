@@ -9,7 +9,7 @@ RELAY_PIN = 27
 # 릴레이 객체 생성 (초기 상태: 꺼짐)
 relay = OutputDevice(RELAY_PIN, active_high=True, initial_value=False)
 
-def pump_on(duration=1):
+def pump_on(duration=30):
     relay.on()  # 릴레이 ON → 펌프 작동
     print("🚿 펌프 작동 시작")
     time.sleep(duration)

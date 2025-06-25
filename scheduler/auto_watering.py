@@ -4,6 +4,7 @@ import time
 import os
 from sensors.soil_sensor import read_soil_moisture
 from actuators.pump_relay import pump_on
+from services.save_watering_log import save_watering_log 
 
 LAST_WATERING_FILE = "logs/last_watering.txt"
 COOL_TIME = 600  # 10분
@@ -29,6 +30,7 @@ def auto_water_if_needed():
         print("✅ 자동 급수 조건 충족: DRY + 쿨타임 경과")
         pump_on(duration=1)
         update_last_watering_time()
+        save_watering_log(method='auto')  # ✅ 여기 추가!
         return {"auto_watered": True, "reason": "dry_and_cooltime_passed"}
     elif is_dry:
         print("⏳ DRY 상태지만 쿨타임 미경과로 대기 중")
