@@ -2,13 +2,23 @@
 
 센서, 펌프, 카메라, GPT 챗봇을 통합한 라즈베리파이 기반 반려식물 IoT 시스템입니다.
 
+## 📂 브랜치 구조 안내
+
+이 프로젝트는 기능별로 브랜치를 나누어 관리합니다:
+
+- `main`: 전체 프로젝트의 기본 브랜치 (백엔드 + 하드웨어 제어 포함)
+- `frontend`: React 기반 대시보드 UI 전용 브랜치
+- `modeling`: 스마트 화분을 3D 프린터로 출력하기 위한 모델링 파일 전용 브랜치
+
+각 브랜치는 목적에 따라 코드가 분리되어 있으며, `main` 브랜치 기준으로 병합되지 않은 상태로 개별 유지됩니다.
+
 ---
 
 ## 🚀 주요 기능
 
 - 온도, 습도, 토양 수분, 조도 실시간 측정
-- 기준 이하 시 자동 급수 (릴레이 제어)
-- 웹 대시보드에서 수동 급수 가능
+- 기준 이하 시 자동 급수/LED 제어 (릴레이 제어)
+- 웹 대시보드에서 수동 급수/LED 제어 가능
 - 실시간 스트리밍 + 타임랩스 영상 제공
 - OpenAI 기반 식물 챗봇 (감정 표현 포함)
 
@@ -67,15 +77,14 @@ cp -r build/* ../static/
 
 - 토양센서 전원: 반드시 **3.3V** 사용
 - 실시간 스트리밍은 MJPEG → **CPU 부하 주의**
-- `.env` 또는 환경변수로 Google/OpenAI API 키 필요
+- `.env` 또는 환경변수로 Google/OpenAI/picovoice API 키 필요
 
 ---
 
 ## 🎥 시연 자료
 
-- 발표자료: [Canva 링크](https://www.canva.com/design/DAGqYxE9_vU/lQ9is7Os6dEzJnHm8OGzvw/edit)
-- 영상: `timelapse.mp4` (웹에서 바로 재생 가능)
-
+- 발표자료(시연영상 포함): [Canva 링크](https://www.canva.com/design/DAGqYxE9_vU/lQ9is7Os6dEzJnHm8OGzvw/edit)
+  
 ---
 
 ## 🧠 주요 외부 API
