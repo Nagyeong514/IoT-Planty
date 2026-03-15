@@ -85,7 +85,7 @@ cp -r build/* ../static/
 
 ## 🎥 시연 자료
 
-- 발표자료(시연영상 포함): [Canva 링크](https://www.canva.com/design/DAGqYxE9_vU/lQ9is7Os6dEzJnHm8OGzvw/edit)
+- 발표자료(시연영상 포함): [Canva 링크](https://www.canva.com/design/DAHD_lN6pBY/Jd0gLKpr22GNyxa6kubfxg/edit?utm_content=DAHD_lN6pBY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
   
 ---
 
